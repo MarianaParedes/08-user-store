@@ -1,7 +1,7 @@
 import { CustomError } from "../errors/custom.error";
 import { UserEntity } from "./user.entity";
 
-
+//No creo entidad categoria en el curso
 
 export class CategoryEntity {
     constructor(

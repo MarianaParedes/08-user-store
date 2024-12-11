@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { disconnect } from "process";
 
 interface Options {
     mongoUrl: string;
@@ -7,6 +8,7 @@ interface Options {
 
 
 export class MongoDatabase {
+
     static async connect( options: Options ) {
         const { mongoUrl, dbName } = options;
 
@@ -20,4 +22,12 @@ export class MongoDatabase {
             throw error;
         }
     }
+
+    
+    static async disconnect() {
+        await mongoose.disconnect();
+    }
+
+
 }
+

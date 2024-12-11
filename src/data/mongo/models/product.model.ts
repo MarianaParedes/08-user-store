@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+import { UserModel } from './user.model';
 
 
 const productSchema = new mongoose.Schema({
@@ -30,6 +31,22 @@ const productSchema = new mongoose.Schema({
         required: true
     }
 });
+
+productSchema.set('toJSON', {
+    virtuals: true,
+    versionKey:false,
+    transform: function(doc, ret, options) {
+        delete ret._id;
+    },
+})
+
+productSchema.set('toJSON', {
+    virtuals: true,
+    versionKey:false,
+    transform: function(doc, ret, options) {
+        delete ret._id;
+    },
+})
 
 
 export const ProductModel = mongoose.model('Product', productSchema);
